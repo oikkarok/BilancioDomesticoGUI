@@ -1,4 +1,3 @@
-// SelezionaUtente.js
 import React, { useState, useEffect } from 'react';
 
 const SelezionaUtente = ({ onClick }) => {
@@ -29,11 +28,8 @@ const SelezionaUtente = ({ onClick }) => {
       {utenteSelezionato && (
         <div>
           Utente Selezionato: {utenteSelezionato.nome} - {utenteSelezionato.cognome}
-          {/* Potresti anche aggiungere un pulsante per confermare la selezione */}
-          <button onClick={() => onClick('gestioneUtenti')}>Conferma Selezione</button>
         </div>
       )}
-      <button onClick={() => onClick('gestioneUtenti')}>Torna a Gestione Utenti</button>
     </div>
   );
 }

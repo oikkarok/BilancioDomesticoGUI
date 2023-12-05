@@ -1,11 +1,17 @@
+// Importa lo stile CSS
+import './../style.css';
 import React from 'react';
-import { Button } from '@mui/material';
 
 const MenuNavigazione = ({ onClick }) => {
   return (
     <div>
-      <button onClick={() => onClick('gestioneUtenti')}>Menu Utenti</button>
-      <button onClick={() => onClick('bilancio')}>Menu Bilancio</button>
+      {/* Applica classi di utilità di Tailwind ai bottoni */}
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => onClick('gestioneUtenti')}>
+        Menu Utenti
+      </button>
+      <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={() => onClick('bilancio')}>
+        Menu Bilancio
+      </button>
     </div>
   );
 }
