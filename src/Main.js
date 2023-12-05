@@ -9,10 +9,16 @@ import ConteggioSpesa from './componensts/ConteggioSpesa.js';
 import ConteggioSpesaPeriodo from './componensts/ConteggioSpesaPeriodo.js'; 
 
 function Main() {
-  const [menu, setMenu] = useState(''); // Stato per gestire quale menu mostrare
+  const [menu, setMenu] = useState('');
+  const [utenti, setUtenti] = useState([]);
 
   const handleClick = (menuItem) => {
     setMenu(menuItem);
+
+    // Pulisci la lista di utenti quando cambi menu
+    if (menuItem !== 'selezionaUtente') {
+      setUtenti([]);
+    }
   };
 
   return (
