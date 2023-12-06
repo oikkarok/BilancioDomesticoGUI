@@ -1,13 +1,19 @@
 import React from 'react';
-import { Button } from '@mui/material';
+import { Typography, Button, Box } from '@mui/material';
 
 const GestioneUtenti = ({ onClick }) => {
   return (
-    <div>
-      <h2>Gestione Utenti</h2>
-      <button onClick={() => onClick('visualizzaTutti')}>Visualizza Tutti</button>
-      <button onClick={() => onClick('selezionaUtente')}>Seleziona Utente</button>
-    </div>
+    <Box textAlign="center" mt={4}>
+      <Typography variant="h4" gutterBottom>
+        Gestione Utenti
+      </Typography>
+      <Button variant="contained" color="primary" onClick={() => onClick('visualizzaTutti')} sx={{ mr: 2 }}>
+        Visualizza Tutti
+      </Button>
+      <Button variant="contained" color="primary" onClick={() => onClick('selezionaUtente')}>
+        Seleziona Utente
+      </Button>
+    </Box>
   );
 }
 

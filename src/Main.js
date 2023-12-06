@@ -1,14 +1,15 @@
-import './style.css';
+// Main.js
 import React, { useState } from 'react';
+import { List, ListItem, Button } from '@mui/material';
 import MenuNavigazione from './componensts/MenuNavigazione.js';
 import GestioneUtenti from './componensts/GestioneUtenti.js';
+import VisualizzaTutti from './componensts/VisualizzaTutti.js';
 import SelezionaUtente from './componensts/SelezionaUtente.js';
 import SpeseUtente from './componensts/SpeseUtente.js';
 import SpesePerPeriodo from './componensts/SpesePerPeriodo.js';
 import AggiungiSpesa from './componensts/AggiungiSpesa.js';
 import ConteggioSpesa from './componensts/ConteggioSpesa.js';
 import ConteggioSpesaPeriodo from './componensts/ConteggioSpesaPeriodo.js';
-import VisualizzaTutti from './componensts/VisualizzaTutti.js';
 
 function Main() {
   const [menuStack, setMenuStack] = useState([]); // Stato per la navigazione
@@ -28,7 +29,11 @@ function Main() {
 
   return (
     <div className="bg-gray-100 min-h-screen p-4">
-      {menuStack.length < 1 ? (<MenuNavigazione onClick={handleClick} />) : null}
+      {menuStack.length < 1 ? (
+        <div>
+          <MenuNavigazione onClick={handleClick} />
+        </div>
+      ) : null}
       <div className="max-w-3xl mx-auto mt-8">
         {currentMenu === 'gestioneUtenti' && <GestioneUtenti onClick={handleClick} />}
         {currentMenu === 'visualizzaTutti' && <VisualizzaTutti onClick={handleClick} />}
@@ -40,9 +45,17 @@ function Main() {
         {currentMenu === 'conteggioSpesaPeriodo' && <ConteggioSpesaPeriodo onClick={handleClick} />}
 
         {/* Mostra un pulsante per tornare indietro se la pila ha più di un elemento */}
-        {menuStack.length > 0 && <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={handleBack}>Torna Indietro</button>}
+        {menuStack.length > 0 && (
+          <List>
+            <ListItem>
+              <Button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={handleBack}>
+                Torna Indietro
+              </Button>
+            </ListItem>
+          </List>
+        )}
       </div>
-    </div >
+    </div>
   );
 }
 
