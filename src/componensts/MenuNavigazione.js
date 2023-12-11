@@ -1,18 +1,16 @@
+// MenuNavigazione.jsx
 import React from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Container } from '@mui/material';
-import ArrowBack from '@mui/icons-material/ArrowBack';
+import { AppBar, Toolbar, Typography, Container } from '@mui/material';
 import SideBar from './SideBar';
 
 const MenuNavigazione = ({ onClick }) => {
-  return (
-    <div>
-      {/* Aggiungi questi stili per dare spazio alla barra laterale sopra la barra superiore */}
-      <style jsx>{`
-        .MuiAppBar-root {
-          margin-left: 8rem; /* Larghezza della barra laterale */
-        }
-      `}</style>
+  const menuItems = [
+    { title: "Menu Utenti", action: "gestioneUtenti" },
+    { title: "Menu Bilancio", action: "bilancio" },
+  ];
 
+  return (
+    <div style={{ marginLeft: '8rem' }}>
       <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -21,7 +19,7 @@ const MenuNavigazione = ({ onClick }) => {
         </Toolbar>
       </AppBar>
       <Container>
-        <SideBar onClick={onClick} />
+        <SideBar onClick={onClick} menuItems={menuItems} />
         {/* Aggiungi qui il tuo contenuto principale */}
       </Container>
     </div>
