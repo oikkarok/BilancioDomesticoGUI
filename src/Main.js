@@ -10,6 +10,7 @@ import SpesePerPeriodo from './componensts/SpesePerPeriodo.js';
 import AggiungiSpesa from './componensts/AggiungiSpesa.js';
 import ConteggioSpesa from './componensts/ConteggioSpesa.js';
 import ConteggioSpesaPeriodo from './componensts/ConteggioSpesaPeriodo.js';
+import TopAppBar from './componensts/TopAppBar';
 
 function Main() {
   const [menuStack, setMenuStack] = useState([]); // Stato per la navigazione
@@ -27,6 +28,8 @@ function Main() {
   // Ottieni il menu corrente dalla cima della pila
   const currentMenu = menuStack.length > 0 ? menuStack[menuStack.length - 1] : '';
 
+  const topAppBar = <TopAppBar onBackClick={handleBack} title={currentMenu} />;
+
   return (
     <div className="bg-gray-100 min-h-screen p-4">
       {menuStack.length < 1 ? (
@@ -35,16 +38,16 @@ function Main() {
         </div>
       ) : null}
       <div className="max-w-3xl mx-auto mt-8">
-        {currentMenu === 'gestioneUtenti' && <GestioneUtenti onClick={handleClick} />}
-        {currentMenu === 'visualizzaTutti' && <VisualizzaTutti onClick={handleClick} />}
-        {currentMenu === 'selezionaUtente' && <SelezionaUtente onClick={handleClick} />}
-        {currentMenu === 'speseUtente' && <SpeseUtente onClick={handleClick} />}
-        {currentMenu === 'spesePerPeriodo' && <SpesePerPeriodo onClick={handleClick} />}
-        {currentMenu === 'aggiungiSpesa' && <AggiungiSpesa onClick={handleClick} />}
-        {currentMenu === 'conteggioSpesa' && <ConteggioSpesa onClick={handleClick} />}
-        {currentMenu === 'conteggioSpesaPeriodo' && <ConteggioSpesaPeriodo onClick={handleClick} />}
+        {currentMenu === 'gestioneUtenti' && <GestioneUtenti onClick={handleClick} topAppBar={topAppBar} />}
+        {currentMenu === 'visualizzaTutti' && <VisualizzaTutti onClick={handleClick} topAppBar={topAppBar} />}
+        {currentMenu === 'selezionaUtente' && <SelezionaUtente onClick={handleClick} topAppBar={topAppBar} />}
+        {currentMenu === 'speseUtente' && <SpeseUtente onClick={handleClick} topAppBar={topAppBar} />}
+        {currentMenu === 'spesePerPeriodo' && <SpesePerPeriodo onClick={handleClick} topAppBar={topAppBar} />}
+        {currentMenu === 'aggiungiSpesa' && <AggiungiSpesa onClick={handleClick} topAppBar={topAppBar} />}
+        {currentMenu === 'conteggioSpesa' && <ConteggioSpesa onClick={handleClick} topAppBar={topAppBar} />}
+        {currentMenu === 'conteggioSpesaPeriodo' && <ConteggioSpesaPeriodo onClick={handleClick} topAppBar={topAppBar} />}
 
-        {/* Mostra un pulsante per tornare indietro se la pila ha più di un elemento */}
+        {/* Mostra un pulsante per tornare indietro se la pila ha più di un elemento 
         {menuStack.length > 0 && (
           <List>
             <ListItem>
@@ -53,7 +56,7 @@ function Main() {
               </Button>
             </ListItem>
           </List>
-        )}
+        )}*/}
       </div>
     </div>
   );

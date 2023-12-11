@@ -2,6 +2,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Container } from '@mui/material';
 import SideBar from './SideBar';
+import TopAppBar from './TopAppBar';
 
 const MenuNavigazione = ({ onClick }) => {
   const menuItems = [
@@ -11,13 +12,7 @@ const MenuNavigazione = ({ onClick }) => {
 
   return (
     <div style={{ marginLeft: '8rem' }}>
-      <AppBar position="sticky">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Bilancio Domestico
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <TopAppBar title="Bilancio Domestico" />
       <Container>
         <SideBar onClick={onClick} menuItems={menuItems} />
         {/* Aggiungi qui il tuo contenuto principale */}

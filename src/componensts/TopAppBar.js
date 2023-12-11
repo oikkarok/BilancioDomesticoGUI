@@ -1,18 +1,18 @@
-// TopAppBar.jsx
+// TopAppBar.js
 import React from 'react';
-import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
-import ArrowBack from '@mui/icons-material/ArrowBack';
+import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-const TopAppBar = ({ title, onBackClick }) => {
+const TopAppBar = ({ onBackClick, title }) => {
   return (
     <AppBar position="sticky">
       <Toolbar>
         {onBackClick && (
-          <IconButton edge="start" color="inherit" onClick={onBackClick}>
-            <ArrowBack />
+          <IconButton edge="start" color="inherit" onClick={onBackClick} sx={{ mr: 2 }}>
+            <ArrowBackIcon />
           </IconButton>
         )}
-        <Typography variant="h6" component="div">
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           {title}
         </Typography>
       </Toolbar>
